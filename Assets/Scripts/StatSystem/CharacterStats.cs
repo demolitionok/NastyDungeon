@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CharacterStats
 {
-    private Stat maxHp;
-    private Stat defence;
-    private Stat damage;
+    public Stat maxHp;
+    public Stat defence;
+    public Stat damage;
 
     public CharacterStats(Stat maxHp, Stat defence, Stat damage)
     {

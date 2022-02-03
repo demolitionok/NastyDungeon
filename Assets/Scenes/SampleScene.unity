@@ -748,8 +748,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1053256353}
         m_TargetAssemblyTypeName: MovementController, Assembly-CSharp
-        m_MethodName: OnMouseMovement
-        m_Mode: 0
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -778,8 +778,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 1623728114}
-  speed: 1
-  turnTime: 0.01
+  speed: 2
+  turnTime: 0.25
   followingCamera: {fileID: 1687258585}
 --- !u!1 &1060900155
 GameObject:

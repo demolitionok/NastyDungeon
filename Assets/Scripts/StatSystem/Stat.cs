@@ -1,17 +1,19 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
+[Serializable]
 public class Stat
 {
     private float startValue;
+    [SerializeField]
     private float value;
 
-    private HashSet<StatModifier> statModifiers;
+    private HashSet<StatModifier> statModifiers = new HashSet<StatModifier>();
 
     public Stat(float startValue) 
     {
-        statModifiers = new HashSet<StatModifier>();
         this.startValue = startValue;
         value = startValue;
     }

@@ -5,17 +5,28 @@ using UnityEngine;
 
 public class PlayerCharacter : MonoBehaviour, IDamageProvider, IDamageReceiver
 {
+    [SerializeField]
     private CharacterStats playerStats;
+    private float _hp;
     private float hp
     {
-        get => hp;
+        get => _hp;
         set
         {
             OnHpChange?.Invoke(value);
-            hp = value;
+            _hp = value;
         }
     }
+    [SerializeField]
+    private float attackSpeed;
+
+
     private event Action<float> OnHpChange;
+
+    private void Start()
+    {
+        hp = playerStats.maxHp.GetValue();
+    }
 
     private void DeathCheck(float value) 
     {
@@ -31,14 +42,28 @@ public class PlayerCharacter : MonoBehaviour, IDamageProvider, IDamageReceiver
         OnHpChange += DeathCheck;
     }
 
+    private void OnDisable()
+    {
+        OnHpChange -= DeathCheck;
+    }
+
     public float GetDamage()
     {
         return playerStats.damage.GetValue();
     }
 
-    public void TakeDamage(float damage)
+    public void ReceiveDamage(float damage)
     {
         var resultDmg = Mathf.Max(0, damage - playerStats.defence.GetValue());
         hp -= resultDmg;
+    }
+
+    private void DoDamage(IDamageReceiver receiver) 
+    {
+        receiver.ReceiveDamage(GetDamage());
+    }
+
+    private void Attack() 
+    {
     }
 }

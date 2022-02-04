@@ -1,8 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using UnityEngine;
 
+[Serializable]
 public class StatModifier
 {
+    [SerializeField]
     private float value;
 
     public float GetValue() => value;
